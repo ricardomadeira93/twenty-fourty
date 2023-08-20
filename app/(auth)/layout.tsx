@@ -1,3 +1,5 @@
+import { UserButton } from '@clerk/nextjs';
+
 export default function AuthLayout({
     children,
   }: {
@@ -5,6 +7,7 @@ export default function AuthLayout({
   }) {
     return (
       <div className="flex items-center justify-center h-screen">
+        <UserButton afterSignOutUrl='/'/>
         {children}
       </div>
     );
