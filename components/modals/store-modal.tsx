@@ -77,7 +77,7 @@ export const StoreModal = () => {
                 >
                   Cancelar
                 </Button>
-                <Button type='submit'></Button>
+                <Button type='submit'>
                   Continuar
                 </Button>
               </div>
