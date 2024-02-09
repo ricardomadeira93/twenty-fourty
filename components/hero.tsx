@@ -1,46 +1,59 @@
 import Image from 'next/image';
-import image from '@/app/assets/image1.jpg';
+import articles from '@/artigos/artigo1.json';
+import { Button } from './ui/button';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from './ui/carousel';
 
 const Hero = () => {
   return (
-    <div className='flex h-screen'>
-      <div className='w-full bg-gray-200 flex flex-col justify-center items-center'>
-        <div className='text-center px-8'>
-          <h1 className='text-4xl font-bold mb-4'>
-            Meet HeroMan!
-          </h1>
-          <p className='text-lg text-gray-800'>
-            A courageous defender of justice,
-            fighting villains and saving the
-            world!
-          </p>
-        </div>
-      </div>
-      <div className='w-full'>
-        <span className='h-full p-24 block relative'>
-          <div className='h-full'>
-            <Image
-              className='h-full w-full object-cover'
-              src={image}
-              alt='Hero Image'
-            />
-          </div>
-          <div className='absolute inset-0 bg-black bg-opacity-50 hover:bg-opacity-90 opacity-0 hover:opacity-100 transition-opacity duration-300'>
-            <div className='flex items-center justify-center h-full'>
-              <div className='text-white text-center'>
-                <h2 className='text-2xl font-bold mb-2'>
-                  Hero Information
-                </h2>
-                <p className='text-lg'>
-                  This is some information about
-                  our hero.
-                </p>
+    <Carousel>
+      <CarouselContent>
+        {articles.map((article) => (
+          <CarouselItem key={article.id}>
+            <div className='flex h-4/5 mt-14'>
+              <div className='w-full bg-[#FFFAFA] flex flex-col justify-center items-center'>
+                <div className='text-start space-y-8 px-8'>
+                  <h1 className='text-5xl font-bold mb-4'>
+                    {article.title}
+                  </h1>
+                  <p className='text-xl w-3/4 text-gray-800'>
+                    {article.description}
+                  </p>
+                  <Button
+                    size={'hero'}
+                    className='flex justify-center'
+                  >
+                    {article.title}
+                  </Button>
+                </div>
+              </div>
+              <div className='w-full relative'>
+                <div className='absolute inset-0 bg-black bg-opacity-50 hover:bg-opacity-90 opacity-0 hover:opacity-100 transition-opacity duration-300 flex justify-center items-center'>
+                  <div className='text-white text-center'>
+                    <h2 className='text-2xl font-semibold mb-2'>
+                      {article.title}
+                    </h2>
+                    <p className='text-lg'>
+                      {article.description}
+                    </p>
+                  </div>
+                </div>
+                <Image
+                  className='h-full w-full object-cover'
+                  src={article.image}
+                  alt='Hero Image'
+                  width={1000}
+                  height={1000}
+                />
               </div>
             </div>
-          </div>
-        </span>
-      </div>
-    </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+    </Carousel>
   );
 };
 

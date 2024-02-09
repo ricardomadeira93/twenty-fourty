@@ -53,25 +53,27 @@ const CardContainer: React.FC = () => {
   }, []);
 
   return (
-    <Carousel>
-      <CarouselContent>
-        <CarouselItem>
-          <div
-            ref={containerRef}
-            className='overflow-x-auto w-full hide-scrollbar'
-          >
-            <div className='flex'>
-              {cards.map((item, index) => (
-                <Card
-                  key={index}
-                  item={item}
-                />
-              ))}
+    <div>
+      <Carousel>
+        <CarouselContent>
+          <CarouselItem>
+            <div
+              ref={containerRef}
+              className='overflow-x-auto flex justify-center items-center w-full hide-scrollbar'
+            >
+              <div className='flex'>
+                {cards.map((item, index) => (
+                  <Card
+                    key={index}
+                    item={item}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        </CarouselItem>
-      </CarouselContent>
-    </Carousel>
+          </CarouselItem>
+        </CarouselContent>
+      </Carousel>
+    </div>
   );
 };
 
