@@ -3,7 +3,15 @@ import React from 'react';
 import tshirtImage from '@/app/assets/tshirt.webp';
 import Image from 'next/image';
 
-const ProductCard = ({ product }) => {
+interface Product {
+  name: string;
+  description: string;
+  price: number;
+}
+
+const ProductCard: React.FC<{
+  product: Product;
+}> = ({ product }) => {
   return (
     <div className='bg-white p-4 shadow-md rounded-md w-72'>
       {' '}
