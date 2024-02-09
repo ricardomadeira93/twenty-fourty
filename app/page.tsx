@@ -1,11 +1,11 @@
 import HeroSection from '@/components/hero';
-import ItemCarousel from '@/components/item-carousel';
+import CardContainer from '@/components/slider/cardContainer';
 
 export default function Home() {
   return (
     <main className='w-full'>
       <HeroSection />
-      <ItemCarousel/>
+      <CardContainer />
     </main>
   );
 }
